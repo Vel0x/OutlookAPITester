@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:type="MailApp">
+  <Id>5283AFBB-806E-2D05-BBAF-EF3384D30022</Id>
+  <Version>1.0</Version>
+  <ProviderName>Apps Platform</ProviderName>
+  <DefaultLocale>en-us</DefaultLocale>
+  <DisplayName DefaultValue="Feature Test App DEBUG" />
+  <Description DefaultValue="An App we use to make sure everything is running smoothly end to end."/>
+  <IconUrl DefaultValue="https://dalemy.github.io/OutlookAPITester/Resources/Icon.png" />
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set MinVersion="1.1" Name="Mailbox" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue=
+          "https://dalemy.github.io/OutlookAPITester/Read/readIndexDebug.htm" />
+        <RequestedHeight>350</RequestedHeight>
+      </DesktopSettings>
+      <TabletSettings>
+        <SourceLocation DefaultValue=
+          "https://dalemy.github.io/OutlookAPITester/Read/readIndexDebug.htm" />
+        <RequestedHeight>250</RequestedHeight>
+      </TabletSettings>
+      <PhoneSettings>
+        <SourceLocation DefaultValue=
+          "https://dalemy.github.io/OutlookAPITester/Read/readIndexDebug.htm" />
+      </PhoneSettings>
+    </Form>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue=
+          "https://dalemy.github.io/OutlookAPITester/Compose/composeIndexDebug.htm" />
+      </DesktopSettings>
+      <TabletSettings>
+        <SourceLocation DefaultValue=
+          "https://dalemy.github.io/OutlookAPITester/Compose/composeIndexDebug.htm" />
+      </TabletSettings>
+      <PhoneSettings>
+        <SourceLocation DefaultValue=
+          "https://dalemy.github.io/OutlookAPITester/Compose/composeIndexDebug.htm" />
+      </PhoneSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteMailbox</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="Regex1" RegExValue="IAmARegexAMA" PropertyName="BodyAsPlaintext" />
+    <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="Regex2" RegExValue="Hello\sWorld" PropertyName="BodyAsPlaintext" />
+    <Rule xsi:type="ItemHasKnownEntity"  EntityType="Address" FilterName="microsoft" RegExFilter="microsoft" IgnoreCase="true"/>
+    <Rule xsi:type="ItemHasKnownEntity"  EntityType="MeetingSuggestion"/>
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="ReadOrEdit"/>
+    <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="ReadOrEdit"/>
+  </Rule>
+</OfficeApp>

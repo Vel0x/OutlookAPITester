@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSOM DCR Test</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.js"></script>
+    <script type="text/javascript">
+        var _OM;
+        var _dialog;
+
+        Office.initialize = function (reason) {
+            _OM = Office.context.document;
+            setTimeout(message, 100);
+            setTimeout(message2, 100);
+            //text.value = window.external.MessageParent("check -- basic");
+        }
+        message = function () {
+            Office.context.ui.messageParent("Office.context.ui");
+        }
+        message2 = function () {
+            window.external.MessageParent("window.external");
+        }
+
+    </script>
+</head>
+<body>
+
+    JSOM Dialog Test
+
+    <textarea id="text" cols="20" rows="10"></textarea>
+    <button onclick="message()">message</button>
+</body>
+</html>
